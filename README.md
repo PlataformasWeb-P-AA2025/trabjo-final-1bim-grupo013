@@ -76,3 +76,11 @@ class Reaccion
 ## En caso de usar IA-Generativa para consulta de información
 
 - En un archivo llamado informacion.md; explicando a detalle el uso de cada prompt
+
+## El dia hoy hemos avanzado en la parte de:
+
+- Se creo el archivo de configurarión para tener el enlace a la base de datos SQLite = configuracion.py
+- Se creo el archivo de generacion = generar_tablas.py
+- Se creo las clases correspondientes
+- Se procedio con la generacion de la base de datos = taller_final.db
+- Se avanzo en la lecturar de los csv para el ingreso de los datos a la base de datos = ingresar_datos.py
