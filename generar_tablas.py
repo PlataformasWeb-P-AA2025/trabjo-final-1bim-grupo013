@@ -16,8 +16,9 @@ class Usuario(Base):
     __tablename__ = 'usuario'
     id = Column(Integer, primary_key=True)
     nombre = Column(String(100))
-    publicacion = relationship("Publicacion", back_populates="usuario")
-    comentario = relationship("Reaccion", back_populates="usuario")
+
+    publicaciones = relationship("Publicacion", back_populates="usuario")
+    reacciones = relationship("Reaccion", back_populates="usuario")
 
     def __repr__(self):
         return "Usuario: nombre=%s\n"% (
@@ -28,8 +29,9 @@ class Publicacion(Base):
     id = Column(Integer, primary_key=True)
     id_usuario = Column(Integer, ForeignKey('usuario.id'))
     publicacion = Column(String(150))
-    usuario = relationship("Usuario", back_populates="publicacion")
-    usuario_reaccion = relationship("Reaccion", back_populates="publicacion")
+
+    usuario = relationship("Usuario", back_populates="publicaciones")
+    reacciones = relationship("Reaccion", back_populates="publicacion")
     
     def __repr__(self):
         return "Publicación: publicacion=%s\n"% (
@@ -40,8 +42,9 @@ class Reaccion(Base):
     id_usuario = Column(Integer, ForeignKey('usuario.id'), primary_key=True)
     id_publicacion = Column(Integer, ForeignKey('publicacion.id'), primary_key=True)
     tipo_emocion = Column(String(25))
-    usuario = relationship("Usuario", back_populates="publicacion")
-    comentario = relationship("Publicacion", back_populates="usuario")
+
+    usuario = relationship("Usuario", back_populates="reacciones")
+    publicacion = relationship("Publicacion", back_populates="reacciones")
 
     def __repr__(self):
         return "Reaccion: tipo de emoción=%s\n"% (
