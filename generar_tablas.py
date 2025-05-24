@@ -21,7 +21,7 @@ class Usuario(Base):
     reacciones = relationship("Reaccion", back_populates="usuario")
 
     def __repr__(self):
-        return "Usuario: nombre=%s\n"% (
+        return "Usuario: nombre=%s"% (
                           self.nombre)
 
 class Publicacion(Base):
@@ -34,7 +34,7 @@ class Publicacion(Base):
     reacciones = relationship("Reaccion", back_populates="publicacion")
     
     def __repr__(self):
-        return "Publicación: publicacion=%s\n"% (
+        return "Publicación: publicacion=%s"% (
                           self.publicacion)
 
 class Reaccion(Base):
@@ -47,7 +47,7 @@ class Reaccion(Base):
     publicacion = relationship("Publicacion", back_populates="reacciones")
 
     def __repr__(self):
-        return "Reaccion: tipo de emoción=%s\n"% (
+        return "Reaccion: tipo de emoción=%s"% (
                           self.tipo_emocion)
 
 Base.metadata.create_all(engine)
